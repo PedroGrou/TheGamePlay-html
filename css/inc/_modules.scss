@@ -1,0 +1,379 @@
+/* -----------------------------------------
+	04. Modules
+----------------------------------------- */
+
+.main {
+	@include box();
+	margin: 0 0 30px;
+}
+
+.section-heading {
+	@include section-heading();
+}
+
+.section-content {
+	background-color: $bg-color;
+	padding: 20px;
+
+	.section-grid &,
+	.section-related & {
+		padding: 0;
+		background: none;
+	}
+}
+
+.section-featured {
+	margin: 0 0 20px;
+}
+
+/* Home Slider
+=================================== */
+.home-slideshow {
+	@include box();
+	margin: 0 0 20px;
+}
+
+.home-slider {
+	margin-right: -20px;
+
+	.slides {
+		li {
+			position: relative;
+			background-size: cover;
+			background-position: top center;
+			background-repeat: no-repeat;
+			height: 400px;
+		}
+	}
+
+	.btn-wrap {
+		z-index: 200;
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+	}
+}
+
+.slide-content {
+	display: none;
+	font-family: $secondary-font;
+	font-size: 29px;
+	line-height: normal;
+	padding: 20px;
+
+	p {
+		margin: 0;
+	}
+
+	.slide-title {
+		font-size: 40px;
+		font-weight: bold;
+		text-shadow: 1px 1px 0 $heading-shadow;
+	}
+}
+
+.sld-btn {
+	border-radius: 0;
+	line-height: normal;
+	padding: 5px 25px 5px;
+	height: 32px;
+	font-size: 16px;
+	text-shadow: 1px 1px 0 $heading-shadow;
+	@include linear-gradient(180deg, $primary-color, $primary-color-dark );
+	position: relative;
+
+	&:hover {
+		@include linear-gradient(180deg, $primary-color, $primary-color-dark );
+	}
+
+	&:after {
+		content: "";
+		border: none;
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		right: 0;
+		margin: -9px -7px 0 0;
+		width: 14px;
+		height: 18px;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-transform: rotate(30deg) skewY(30deg);
+		-moz-transform: rotate(30deg) skewY(30deg);
+		-ms-transform: rotate(30deg) skewY(30deg);
+		transform: rotate(30deg) skewY(30deg);
+		@include linear-gradient(135deg, $primary-color, $primary-color-dark );
+	}
+}
+
+.home-slider-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+	z-index: 20;
+	margin-left: -5px;
+
+	li {
+		display: block;
+		position: relative;
+		z-index: 1;
+		border-left: 4px solid rgba( black, 0.1 );
+		font-size: 15px;
+
+		a {
+			display: block;
+			height: 100px;
+			padding: 17px 40px 20px 30px;
+			text-overflow: ellipsis;
+			color: #fff;
+			font-family: $secondary-font;
+			@include linear-gradient(180deg, lighten( $bg-color, 5% ), $bg-color );
+			line-height: normal;
+			position: relative;
+
+			p {
+				margin: 0;
+			}
+
+			.slide-title {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 0 0 5px;
+				text-shadow: 1px 1px $heading-shadow;
+			}
+		}
+
+		&.ci-active {
+			margin-right: -21px;
+
+			a {
+				@include linear-gradient(180deg, $primary-color, $primary-color-dark );
+				box-shadow: inset -6px 0 7px 0 rgba(0, 0, 0, 0.35);
+				&:after {
+					content: "";
+					border: none;
+					position: absolute;
+					z-index: -1;
+					top: 50%;
+					left: 0;
+					margin: -29px -24px;
+					width: 50px;
+					height: 58px;
+					-webkit-backface-visibility: hidden;
+					backface-visibility: hidden;
+					-webkit-transform: rotate(30deg) skewY(30deg);
+					-moz-transform: rotate(30deg) skewY(30deg);
+					-ms-transform: rotate(30deg) skewY(30deg);
+					transform: rotate(30deg) skewY(30deg);
+					@include linear-gradient(135deg, $primary-color, $primary-color-dark );
+					box-shadow: -5px 6px 0 rgba( black, 0.08 );
+				}
+			}
+		}
+	}
+}
+
+/* Entry Styles
+=================================== */
+
+.entry {
+	margin: 0 0 30px;
+
+	.single & {
+		margin: 0 0 20px;
+	}
+}
+
+.entry-thumb {
+	margin: 0 0 25px;
+
+	&.alignnone,
+	&.alignleft,
+	&.alignright,
+	&.aligncenter {
+		margin-top: 0;
+	}
+}
+
+.entry-categories + .entry-thumb {
+	margin: 20px 0 25px;
+}
+
+.entry-title {
+	font-size: 28px;
+	line-height: 1.1;
+	margin: 0 0 10px;
+
+	a {
+		color: $text-color;
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+
+.entry-meta,
+.entry-categories {
+	margin: 0 0 10px;
+
+	a {
+		border-bottom: 1px dotted transparent;
+
+		&:hover {
+			border-bottom-color: $text-color;
+		}
+	}
+}
+
+.entry-meta {
+	color: $text-color-secondary;
+	font-size: 12px;
+}
+
+.entry-categories {
+	font-weight: bold;
+}
+
+.entry-content {
+	@include clearfix;
+
+	h2 { font-size: 26px; }
+	h3 { font-size: 23px; }
+	h4 { font-size: 19px; }
+	h5 { font-size: 16px; }
+	h6 { font-size: 15px; }
+
+	.fluid-width-video-wrapper {
+		margin: 20px 0;
+	}
+}
+
+/* Listing */
+.entry-item {
+	.entry-title {
+		font-size: 22px;
+	}
+}
+
+.item-default {
+	@include clearfix();
+	margin: 0 0 45px;
+	padding: 0 0 30px;
+	border-bottom: 1px solid $border-color;
+
+	&:last-of-type {
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+
+	.entry-thumb {
+		float: left;
+		max-width: 200px;
+		margin: 0 20px 0 0;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.entry-content-wrap {
+		overflow: hidden;
+		zoom: 1;
+	}
+}
+
+.item-vertical {
+	margin: 0 0 20px;
+
+	.entry-thumb {
+		margin: 0;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.entry-content-wrap {
+		background-color: $bg-color;
+		padding: 20px;
+	}
+
+	.entry-excerpt {
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.item-lg {
+	margin: 0;
+
+	.entry-thumb {
+		margin: -20px -20px 20px -20px;
+	}
+}
+
+.review-rating {
+	@include linear-gradient(180deg, $primary-color, $primary-color-dark);
+	border-bottom: solid 20px $section-background;
+	border-left: solid 20px $section-background;
+	float: right;
+	position: relative;
+	top: -20px;
+	right: -20px;
+	padding: 20px;
+	text-align: center;
+
+	.total {
+		display: block;
+		font-size: 50px;
+		text-align: center;
+		font-weight: bold;
+		line-height: 1;
+		text-shadow: 1px 1px $heading-shadow;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+/* Pagination
+=================================== */
+#paging {
+	margin: 30px 0 0;
+	padding: 35px 0 0;
+	border-top: 1px solid $border-color;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: inline-block;
+		}
+	}
+
+	a,
+	> span,
+	li span {
+		display: inline-block;
+		text-transform: uppercase;
+		font-size: 13px;
+		color: $text-color;
+		@include box();
+		padding: 11px 14px 7px;
+		margin: 0 3px 0 0;
+		line-height: normal;
+		font-family: $secondary-font;
+	}
+
+	a:hover,
+	.current {
+		background-color: $primary-color;
+	}
+}

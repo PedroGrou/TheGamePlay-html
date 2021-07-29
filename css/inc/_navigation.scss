@@ -1,0 +1,136 @@
+/* -----------------------------------------
+	02. Main Navigation
+----------------------------------------- */
+
+.nav {
+	@include box();
+	padding: 0;
+	margin: 0 0 15px;
+}
+
+.nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navigation {
+	@include clearfix();
+
+  // Navigation functional styles
+  li { position: relative; z-index: 100;}
+  > li { float: left; }
+  ul { position: absolute; z-index: 300; top: -999em; }
+  li:hover > ul,
+  .sfHover > ul { top: auto; left: 12px; }
+  li li:hover > ul,
+  li .sfHover > ul { top: 0; left: 100%; }
+  li li li:hover > ul,
+  li li .sfHover > ul{ top: 0; left: 100%; }
+  a, .navigation a:visited { display: block; white-space: nowrap; }
+    
+  a {
+		font-family: $secondary-font;
+		font-size: 16px;
+		text-transform: uppercase;
+		color: $text-color-secondary;
+
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: auto;
+    /* Global Menu Link Styles */
+  }
+
+  > li:first-child > a { padding-left: 20px; }
+  > li:last-child > a {  }
+
+  a:hover,
+  .sfHover > a {
+    text-decoration: none;
+		color: $text-color;
+    /* First Level & Global Menu Link Hover Styles */
+  }
+
+  > li > a {
+		padding: 12px 13px 10px;
+    /* First Level Menu Link Styles */
+  }
+
+  > li ul a {
+		padding: 10px;
+		border-bottom: 1px solid darken( $border-color, 5% );
+		text-transform: none;
+    /* All Other Menu Level Link Styles */
+  }
+
+	> li > a:hover,
+	> li.sfHover > a,
+	> li.sfHover > a:active,
+	> li.current_page_item > a,
+	> li.current-menu-item > a,
+	> li.current-menu-ancestor > a,
+	> li.current-menu-parent > a,
+	> li.current > a {
+		color: $text-color;
+
+	/* WordPress First Level Current/Ancestor Hover Page Styles */
+	}
+
+
+  ul {
+		background: $section-background;
+		border: 1px solid darken( $border-color, 5% );
+		padding-bottom: 10px;
+		border-radius: 0 0 5px 5px;
+		min-width: 240px;
+		box-shadow: 0 0 5px darken( $border-color, 5% );
+    /* All Lower Level Menu Container Styles */
+  }
+
+  a.sf-with-ul {
+    padding-right: 22px;
+    position: relative;
+    /* Styling for navigation arrows  ---------- */
+  }
+
+  &.sf-arrows .sf-with-ul:after {
+    content: '\f078';
+		font-family: FontAwesome;
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    margin-top: -9px;
+		font-size: 8px;
+		font-weight: normal;
+  }
+
+  &.sf-arrows ul .sf-with-ul:after {
+ 		right: 8px;
+		content: "\f054";
+		margin-top: -6px;
+    /* Styling for right facing arrows  ---------- */
+  }
+}
+
+.nav-inline {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+
+	li {
+		display: inline-block;
+		margin: 0 10px 0 0;
+
+		a {
+			-webkit-font-smoothing: subpixel-antialiased;
+			-moz-osx-font-smoothing: auto;
+			color: $text-color-secondary;
+			text-transform: uppercase;
+			font-family: $secondary-font;
+
+			&:hover {
+				color: $text-color;
+			}
+		}
+	}
+}

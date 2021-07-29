@@ -1,0 +1,30 @@
+$bg-color: #1C1C1C;
+$section-background: #000 !default;
+$section-shadow: #313131 !default;
+$primary-color: #D301B0 !default;
+$primary-color-dark: #560047 !default;
+$text-color: #ececec !default;
+$text-color-secondary: #adadad !default;
+$heading-shadow: #000 !default;
+$border-color: #2F2E2F !default;
+$input-color: #555 !default;
+$input-background: #FFF !default;
+
+@mixin linear-gradient($deg: null, $start-color: null, $end-color: null) {
+  background: $end-color;
+  background-image: -webkit-linear-gradient($deg, $start-color, $end-color);
+  background-image: linear-gradient($deg, $start-color, $end-color);
+}
+
+@mixin section-heading() {
+	text-shadow: 1px 1px $heading-shadow;
+	@include linear-gradient(180deg, $primary-color, $primary-color-dark);
+}
+
+@mixin box( $bg: $section-background, $border: $section-shadow, $shadow: $section-shadow) {
+	background-color: $bg;
+	border: 1px solid $border;
+	box-shadow: 0 0 3px $shadow;
+}
+
+@import '_base.scss';

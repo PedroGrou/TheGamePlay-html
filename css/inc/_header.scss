@@ -1,0 +1,35 @@
+/* -----------------------------------------
+	03. Header
+----------------------------------------- */
+.top-nav {
+	background-color: $section-background;
+	height: 34px;
+	border-bottom: 1px solid $border-color;
+	padding: 5px 0 0;
+}
+
+.logo-wrap {
+	padding: 45px 0 30px;
+}
+
+.site-logo {
+	margin: 0;
+	font-size: 50px;
+	line-height: 0.6;
+	font-weight: bold;
+
+	a {
+		color: $text-color;
+	}
+}
+
+.site-tagline {
+	margin: 0;
+	font-family: $secondary-font;
+	font-size: 16px;
+}
+
+.header-banner {
+	margin-top: 25px;
+	text-align: right;
+}

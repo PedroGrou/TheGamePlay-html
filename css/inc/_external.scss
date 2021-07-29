@@ -1,0 +1,42 @@
+/* -----------------------------------------
+	10. External Plugins
+----------------------------------------- */
+
+/* Jetpack Sharing */
+.sharedaddy {
+	margin: 40px 0 15px;
+}
+
+/* WP Instagram */
+.null-instagram-feed p {
+	padding-top:10px;
+}
+
+.widget .instagram-pics {
+	@include clearfix;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.widget .instagram-pics li {
+	border-bottom:0;
+	padding:0;
+	float:left;
+	width:33.33333333333%;
+
+	a {
+		display:block;
+		color: $text-color;
+	}
+}
+
+/* Jetpack Subscribe */
+.comment-subscription-form {
+	margin: 10px 0 0;
+
+	label {
+		font-size: 0.8em;
+		margin-left: 10px;
+	}
+}
